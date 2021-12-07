@@ -1,0 +1,40 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-image: url('https://studyukstem.files.wordpress.com/2018/03/laptop.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover
+    }
+  </style>
+</head>
+<body >
+  
+
+ <div class="content-section col-md-8 col-md-offset-2">
+  <center>
+  <form method="POST" style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%; background-color:aliceblue ">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      {{ form|crispy}}
+    </fieldset>
+   <center>
+    <button style="background: green; font-size: 2rem; padding:1%; color:aliceblue" class="btn btn-outline-info" type="submit"><span class="glyphicon glyphicon-log-in"></span> &nbsp; login</button>
+  </center>
+  <br/>
+  <sub style="text-align: left;"><a href="{% url 'register' %}" style="text-decoration: none; color: blue; padding:2%; cursor:pointer; margin-right:2%; font-size:1.5rem">don't have account,sign up</a></sub>
+  </form>
+</center>
+ </div>
+{% endblock start %}
+</body>
+</html>
